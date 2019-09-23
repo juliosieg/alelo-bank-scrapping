@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Consulta Informações Alelo</title>
+  </head>
+  <body>
+    <main>
+      <form name="formAlelo" method="POST" action="/consulta">
+        <span>Insira seu CPF</span>
+        <input type='text' name='cpf' value='<%= data.cpf %>'/>
+        
+        <br><br>
+
+        <span>Insira sua senha</span>
+        <input type='password' name='password'/>
+        <input type='submit'/>
+      </form>
+    </main>
+
+    <% if(data) { %>
+      <br>
+      <h3>Dados do cartão: </h3>
+      <b> Cartão: </b> <%= data.cartao[0].nome %> <br>
+      <b> Número: </b> <%= data.cartao[0].numero %> <br>
+      <b> Saldo:  </b> <%= data.cartao[0].saldo %> <br>
+
+      <br>
+
+      <h3>Informações adicionais: </h3>
+      <b> Gasto Diário Sugerido: </b> <%= data.infos[0].gastoDiarioSugerido %> <br>
+      <b> Gasto Médio no período: </b> <%= data.infos[0].gastoMedioPeriodo %> <br>
+      <b> Data do último benefício:  </b> <%= data.infos[0].ultimoBeneficio %> <br>
+      <b> Data do próximo benefício:  </b> <%= data.infos[0].proximoBeneficio %> <br>
+      
+      <br>
+
+      <h3>Transações (últimos 4 meses): </h3>
+      <% for(var i = 0; i< data.transacoes.length; i++) { %>
+
+        <b> Descrição: </b> <%= data.transacoes[i].descricao %> <br>
+        
+        <% if(data.transacoes[i].valor.includes('-')) { %> 
+          <span style='color: red'> 
+        <% }else{ %> 
+          <span style='color: green'>
+        <% } %> 
+            <b> Valor: </b> <%= data.transacoes[i].valor %>
+          </span> 
+        <br>
+        
+        <b> Data:  </b> <%= data.transacoes[i].data %> <br>
+        <br>
+      <%}%>
+
+    <% } %>
+  </body>
+</html>
