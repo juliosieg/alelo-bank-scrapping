@@ -3,9 +3,9 @@ const router = express.Router();
 const aleloController = require('../controllers/aleloController');
 
 router.get('/', (req, res, next) => {
-    res.render('index', {data: ''});
+    res.render('index', {cpf: '', password: '', err: '', data: ''});
 });
 
-router.post('/consulta', aleloController.consulta);
+router.post('/', aleloController.consulta);
 
 module.exports = router;

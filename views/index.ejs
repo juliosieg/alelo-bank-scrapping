@@ -5,17 +5,21 @@
   </head>
   <body>
     <main>
-      <form name="formAlelo" method="POST" action="/consulta">
+      <form name="formAlelo" method="POST" action="/">
         <span>Insira seu CPF</span>
-        <input type='text' name='cpf' value='<%= data.cpf %>'/>
+        <input type='text' name='cpf' value='<%= cpf %>'/>
         
         <br><br>
 
         <span>Insira sua senha</span>
-        <input type='password' name='password'/>
+        <input type='password' name='password' value='<%= password %>'/>
         <input type='submit'/>
       </form>
     </main>
+
+    <% if(err) { %>
+      <h3 style='color: red'><%= err %></h3>
+    <% } %>
 
     <% if(data) { %>
       <br>
