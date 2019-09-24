@@ -9,7 +9,7 @@ O projeto depende do Node.js para seu funcionamento. Para desenvolvimento, foi u
 
 ---
 
-###Instalação de Pacotes
+### Instalação de Pacotes
 
 Para executar o projeto pela primeira vez, é necessária rodar o seguinte comando:
 
